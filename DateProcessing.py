@@ -35,3 +35,6 @@ x = oneHotCodeEncoder.fit_transform(x).toarray()
 labelEncode_y = LabelEncoder()
 y = labelEncode_y.fit_transform(y)
 
+
+
+
