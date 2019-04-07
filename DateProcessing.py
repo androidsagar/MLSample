@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-from sklearn.compose import ColumnTransformer
+#from sklearn.compose import ColumnTransformer
 
 df = pd.read_csv("/home/sagar/Desktop/ML/Part 1 - Data Preprocessing/Data.csv")
 x = df.iloc[:, :-1].values
@@ -34,6 +34,20 @@ x = oneHotCodeEncoder.fit_transform(x).toarray()
 
 labelEncode_y = LabelEncoder()
 y = labelEncode_y.fit_transform(y)
+
+# Splitting Data into training and Test
+from sklearn.model_selection import train_test_split
+xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size = 0.2)
+
+# Feature Scalling
+from sklearn.preprocessing import StandardScaler
+scX = StandardScaler()
+xTrain = scX.fit_transform(xTrain)
+xTest = scX.transform(xTest)
+
+
+
+
 
 
 
