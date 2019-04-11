@@ -20,4 +20,12 @@ xTrain,xTest,yTrain,yTest = train_test_split(x,y,test_size = 0.3)
 from sklearn.linear_model import LinearRegression
 regr = LinearRegression()
 regr = regr.fit(xTrain,yTrain)
-val = regr.predict(xTest)
+yPridict = regr.predict(xTest)
+
+#Plot
+import matplotlib.pyplot as plt
+plt.scatter(xTrain,yTrain,color = 'red') #Plot Traing Data
+plt.scatter(xTest,yTest,color = 'green') #Plot Testing Data
+plt.plot(xTrain,regr.predict(xTrain),color = 'blue') #Plot Best Fit Line
+plt.show()
+
